@@ -17,6 +17,9 @@ public class Distancia {
     public int GetIntValue(){
         float f=Float.parseFloat(value);
         int i= (int) f;
+        if (i > 50){
+            return 50;
+        }
         return i;
     }
 }

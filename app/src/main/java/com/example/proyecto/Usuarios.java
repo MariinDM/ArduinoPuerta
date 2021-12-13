@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.proyecto.adapters.AdapterRegistros;
 import com.example.proyecto.adapters.AdapterUser;
+import com.example.proyecto.models.Globalkeys;
 import com.example.proyecto.models.Singleton;
 import com.example.proyecto.models.nfc;
 import com.example.proyecto.models.user;
@@ -33,18 +34,24 @@ public class Usuarios extends AppCompatActivity {
 
     List<user> Lista;
 
-    //String key="aio_Tlne38m2vmEYPeDm0hfNnqDx8dja";
-
+    String key="aio_uWxJ550cjM8YoPoH1JXbQjBb28wm";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuarios);
 
+        String url;
+        String permitidos=getIntent().getStringExtra("Permitido");
 
-        String url="http://3.13.226.253/api/ChecarUsuarios";
+        if(permitidos.equals("Si")){
+            url="http://sensorama.sytes.net/api/UsuariosPermitidos";
 
+        }
+        else{
+            url="http://sensorama.sytes.net/api/UsuariosDenegados";
+        }
 
-        recy=findViewById(R.id.recyuser                                                                                                                                                                          );
+        recy=findViewById(R.id.recycler);
         Lista=new ArrayList<>();
 
         JsonArrayRequest jsonArrayRequest= new JsonArrayRequest(
@@ -61,13 +68,14 @@ public class Usuarios extends AppCompatActivity {
                                 user fff= new user();
                                 fff.setName(jsonObject.getString("name").toString());
                                 fff.setLastname(jsonObject.getString("lastname").toString());
-                                fff.setPermiso(jsonObject.getString("permiso").toString());
+                                fff.setEmail(jsonObject.getString("email").toString());
+                                fff.setLlaveIngreso(jsonObject.getString("LlaveIngreso").toString());
                                 Lista.add(fff);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
-                        AdapterUser AP= new AdapterUser(Lista);
+                        AdapterUser AP=new AdapterUser(Lista);
                         recy.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                         recy.setHasFixedSize(true);
                         recy.setAdapter(AP);
@@ -83,7 +91,8 @@ public class Usuarios extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("X-AIO-Key", key);
+                headers.put("X-AIO-Key", Globalkeys.ADAFRUITkey);
+                headers.put("Authorization", Globalkeys.JWTkey);
                 return headers;
             }
         };

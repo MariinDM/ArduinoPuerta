@@ -3,16 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/drawable/degradado.xml" value="0.240625" />
+        <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/activity_alta_usuario.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/activity_grafica.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/activity_inicio.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/activity_login.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/activity_main.xml" value="0.1852355072463768" />
         <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/activity_main2.xml" value="0.1852355072463768" />
         <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/activity_nfctext.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/activity_permisos.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/activity_recyuser.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/activity_registro.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/activity_splash.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/activity_usuarios.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/activity_usuarios2.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/network_security_config.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/permisos.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/MarinDM/AndroidStudioProjects/Proyecto/app/src/main/res/layout/registro.xml" value="0.22447916666666667" />
       </map>
     </option>

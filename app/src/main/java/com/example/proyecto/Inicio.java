@@ -13,6 +13,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.proyecto.models.Globalkeys;
 import com.example.proyecto.models.Singleton;
 import com.google.gson.Gson;
 
@@ -25,8 +26,6 @@ import java.util.Map;
 
 public class Inicio extends AppCompatActivity {
 
-    //String key="aio_Tlne38m2vmEYPeDm0hfNnqDx8dja";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +33,7 @@ public class Inicio extends AppCompatActivity {
     }
 
     public void user(View view) {
-        Intent i = new Intent(this,Usuarios.class);
+        Intent i = new Intent(this,Usuarios2.class);
         view.getContext().startActivity(i);
     }
     public void reg(View view) {
@@ -46,7 +45,7 @@ public class Inicio extends AppCompatActivity {
         view.getContext().startActivity(i);
     }
     public void Accion1(View view) {
-        String url1 ="https://io.adafruit.com//api/v2/CarlosLpz/feeds/nfcactivado/data";
+        String url1 ="http://sensorama.sytes.net/api/ChecarExistencia";
 
         JSONObject datos = new JSONObject();
         try {
@@ -77,7 +76,7 @@ public class Inicio extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("X-AIO-Key", key);
+                headers.put("X-AIO-Key", Globalkeys.ADAFRUITkey);
                 return headers;
             }
         };
@@ -86,6 +85,10 @@ public class Inicio extends AppCompatActivity {
     }
     public void nfctext(View view){
         Intent i = new Intent(this,nfctext.class);
+        view.getContext().startActivity(i);
+    }
+    public void permisos(View view) {
+        Intent i = new Intent(this,Permisos.class);
         view.getContext().startActivity(i);
     }
 }

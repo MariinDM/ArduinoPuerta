@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Proyecto"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Login"
+            android:exported="true" />
+        <activity
+            android:name=".AltaUsuario"
+            android:exported="true" />
+        <activity
+            android:name=".Permisos"
+            android:exported="true" />
+        <activity
+            android:name=".Usuarios2"
+            android:exported="true" />
+        <activity
             android:name=".Splash"
             android:exported="true">
             <intent-filter>
@@ -35,8 +47,7 @@
             android:exported="true" />
         <activity
             android:name=".Inicio"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".adapters.MainActivity2"
             android:exported="true" />

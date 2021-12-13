@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".nfctext"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/bluegray3">
 
     <TextView
         android:id="@+id/textView2"
@@ -15,7 +15,8 @@
         android:text="NFC"
         android:textSize="50sp"
         android:textAlignment="center"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:layout_marginTop="25dp"/>
 
     <EditText
         android:id="@+id/et1"
@@ -23,15 +24,22 @@
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:textAlignment="center"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"/>
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:textAlignment="center"
         android:textSize="30sp"
         android:text="Enviar"
-        android:layout_marginTop="20sp"
+        android:backgroundTint="@color/bluegray10"
+        android:layout_marginTop="25dp"
         android:layout_margin="5sp"
         android:onClick="enviar"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         />
 </LinearLayout>

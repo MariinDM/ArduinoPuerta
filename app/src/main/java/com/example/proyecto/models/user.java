@@ -1,16 +1,37 @@
 package com.example.proyecto.models;
 
 public class user {
+    private int id;
     private String name;
     private String lastname;
-    private String permiso;
+    private int permiso;
+    private String email;
+    private String LlaveIngreso;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLlaveIngreso() {
+        return LlaveIngreso;
+    }
+
+    public void setLlaveIngreso(String llaveIngreso) {
+        LlaveIngreso = llaveIngreso;
+    }
 
     public  user(){
     }
-    public user(String name, String lastname, String permiso) {
+
+    public user(String name, String lastname, String email, String LlaveIngreso) {
         this.name = name;
         this.lastname = lastname;
-        this.permiso = permiso;
+        this.email = email;
+        this.LlaveIngreso = LlaveIngreso;
     }
 
     public String nombreCompleto(){
@@ -33,18 +54,26 @@ public class user {
         this.lastname = lastname;
     }
 
-    public String getPermiso() {
+    public int getPermiso() {
         return permiso;
     }
 
-    public void setPermiso(String permiso) {
+    public void setPermiso(int permiso) {
         this.permiso = permiso;
     }
 
     public String getPermisos() {
-        if (!permiso.equals("1")){
+        if (permiso==1){
             return "Denegado";
         }
         return "Permitido";
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int  id) {
+        this.id = id;
     }
 }

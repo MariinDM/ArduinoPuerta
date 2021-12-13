@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.proyecto.adapters.AdapterRegistros;
 import com.example.proyecto.models.Distancia;
+import com.example.proyecto.models.Globalkeys;
 import com.example.proyecto.models.Singleton;
 import com.example.proyecto.models.nfc;
 import com.google.gson.Gson;
@@ -34,31 +37,50 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import lecho.lib.hellocharts.model.Axis;
 import lecho.lib.hellocharts.model.Line;
 import lecho.lib.hellocharts.model.LineChartData;
 import lecho.lib.hellocharts.model.PointValue;
+import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
 
 public class Grafica extends AppCompatActivity {
 
-    RecyclerView recy;
+    //VIEWS
     TextView tx;
     LineChartView chart;
-    List<Line> lines = new ArrayList<Line>();
-    List<Distancia> Lista;
-    //String key="aio_Tlne38m2vmEYPeDm0hfNnqDx8dja";
+    //VARIABLES
     int size;
     LineChartData data;
+    List<Line> lines = new ArrayList<Line>();
+    List<Distancia> Lista;
+    int aux = 0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grafica);
-
+        chart=findViewById(R.id.chart);
+        chart.setVisibility(View.INVISIBLE);
+        tx=findViewById(R.id.distancia_txt);
         APIdistancia();
     }
 
+    @Override
+    protected void onResume () {
+        super.onResume();
+    }
+
+    public void Ciclo() {
+        APIdistancia();
+        chart.setVisibility(View.VISIBLE);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     public void APIdistancia() {
         String url2="https://io.adafruit.com//api/v2/CarlosLpz/feeds/verdistancia/data?limit=10";
         Lista=new ArrayList<>();
@@ -68,6 +90,7 @@ public class Grafica extends AppCompatActivity {
                 url2,
                 null,
                 new Response.Listener<JSONArray>() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onResponse(JSONArray response) {
                         size=response.length();
@@ -78,11 +101,14 @@ public class Grafica extends AppCompatActivity {
                                 Distancia fff= new Distancia();
                                 fff.setValue(jsonObject.getString("value").toString());
                                 Lista.add(fff);
-                                GenerarGrafico();
+                                if(i == 0){
+                                    tx.setText(Lista.get(i).getValue() + " cm");
+                                }
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
+                        GenerarGrafico();
                     }
                 },
                 new Response.ErrorListener() {
@@ -95,7 +121,7 @@ public class Grafica extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("X-AIO-Key", key);
+                headers.put("X-AIO-Key", Globalkeys.ADAFRUITkey);
                 return headers;
             }
         };
@@ -107,8 +133,7 @@ public class Grafica extends AppCompatActivity {
 
     public void GenerarGrafico(){
 
-
-        chart=findViewById(R.id.chart);
+        //chart=findViewById(R.id.chart);
 
         List<PointValue> values = new ArrayList<PointValue>();
 
@@ -116,39 +141,27 @@ public class Grafica extends AppCompatActivity {
             values.add(new PointValue(i, Lista.get(i).GetIntValue()));
         }
 
-        //In most cased you can call data model methods in builder-pattern-like manner.
-        Line line = new Line(values).setColor(Color.BLUE).setCubic(true);
-
+        //LINES
+        Line line = new Line(values).setColor(Color.parseColor("#9C27B0")).setCubic(true);
         line.setStrokeWidth(2);
-        line.setPointRadius(0);
+        //line.setPointRadius(2);
+        lines.clear();
         lines.add(line);
-
         data = new LineChartData();
         data.setLines(lines);
+        //YAxis
+        Axis yAxis = new Axis();
+        data.setAxisYLeft(yAxis);
+        yAxis.setName("Distancia (cm)");
 
-        //LineChartView chart = new LineChartView(getApplicationContext());
         chart.setLineChartData(data);
-        Contador();
 
-    }
-
-    public void Contador(){
-        int lapso = 1000;
-        int tiempoTot = 10000;
-        new CountDownTimer(lapso,tiempoTot) {
-
-            @Override
-            public void onTick(long millisUntilFinished) {
-
-            }
-
-            @Override
-            public void onFinish() {
-                data.getLines().clear();
-                //chart.setLineChartData(data);
-                APIdistancia();
-
-            }
-        }.start();
+        //VIEWPORT
+        Viewport viewport = new Viewport(chart.getMaximumViewport());
+        viewport.top =50;
+        viewport.bottom = 0;
+        chart.setMaximumViewport(viewport);
+        chart.setCurrentViewport(viewport);
+        Ciclo();
     }
 }

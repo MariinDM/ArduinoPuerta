@@ -42,15 +42,18 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tx1;
         TextView tx2;
+        TextView tx3;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tx1=itemView.findViewById(R.id.namecompleto);
-            tx2=itemView.findViewById(R.id.permiso);
+            tx2=itemView.findViewById(R.id.email);
+            tx3=itemView.findViewById(R.id.llave);
         }
         public void bind(user mi) {
             this.tx1.setText(mi.nombreCompleto());
-            this.tx2.setText(mi.getPermisos());
+            this.tx2.setText(mi.getEmail());
+            this.tx3.setText(mi.getLlaveIngreso());
         }
     }
 }

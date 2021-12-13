@@ -4,26 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Usuarios"
-    android:orientation="vertical"
-    android:background="@color/bluegray3">
+    tools:context=".Permisos"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tv1"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp"
+        android:id="@+id/tx1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="USUARIOS"
-        android:textSize="40sp"
+        android:text="PERMISOS DE USUARIOS"
         android:textAlignment="center"
-        android:textColor="@color/black"/>
-
+        android:textSize="30sp"
+        android:background="@color/bluegray2"/>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
+        android:id="@+id/recypermisos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:background="@color/bluegray2"/>
 </LinearLayout>

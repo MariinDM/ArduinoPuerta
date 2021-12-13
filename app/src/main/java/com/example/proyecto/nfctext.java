@@ -13,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.example.proyecto.models.Globalkeys;
 import com.example.proyecto.models.Singleton;
 import com.google.gson.Gson;
 
@@ -26,7 +27,7 @@ import java.util.Map;
 
 public class nfctext extends AppCompatActivity {
 
-    //String key="aio_Tlne38m2vmEYPeDm0hfNnqDx8dja";
+    String key="aio_Tlne38m2vmEYPeDm0hfNnqDx8dja";
     EditText et1;
     String nfc;
 
@@ -75,7 +76,8 @@ public class nfctext extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("X-AIO-Key", key);
+                headers.put("X-AIO-Key", Globalkeys.ADAFRUITkey);
+                headers.put("Authorization", Globalkeys.JWTkey);
                 return headers;
             }
         };
