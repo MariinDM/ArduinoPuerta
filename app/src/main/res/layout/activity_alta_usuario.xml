@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bluegray3"
+    tools:context=".AltaUsuario">
+
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CREAR USUARIO"
+        android:textSize="50sp"
+        android:textAlignment="center"
+        android:background="@color/bluegray4"
+        android:textColor="@color/white"
+        android:layout_marginBottom="20dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/bluegray5"
+        android:layout_marginBottom="10dp"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="NOMBRE"
+            android:textSize="25sp"
+            android:background="@color/bluegray7"
+            android:layout_weight="2"
+            android:textColor="@color/bluegray10"
+            android:gravity="center"
+            />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textSize="25sp"
+            android:hint="Escribir nombre"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            android:textColorHint="@color/bluegray6"
+            android:id="@+id/nombre_et" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:background="@color/bluegray5"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="APELLIDO"
+            android:textSize="25sp"
+            android:background="@color/bluegray7"
+            android:layout_weight="2"
+            android:textColor="@color/bluegray10"
+            android:gravity="center"
+            />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textSize="25sp"
+            android:hint="Escribir apellido"
+            android:inputType="textPersonName"
+            android:id="@+id/apellido_et"
+            android:textColor="@color/black"
+            android:textColorHint="@color/bluegray6"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/bluegray5"
+        android:layout_marginBottom="10dp"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="CORREO"
+            android:textSize="25sp"
+            android:background="@color/bluegray7"
+            android:layout_weight="2"
+            android:textColor="@color/bluegray10"
+            android:gravity="center"
+            />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textSize="25sp"
+            android:hint="Escribir correo"
+            android:id="@+id/correo_et"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black"
+            android:textColorHint="@color/bluegray6"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/bluegray5"
+        android:layout_marginBottom="10dp"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="CLAVE NFC"
+            android:textSize="25sp"
+            android:background="@color/bluegray7"
+            android:layout_weight="2"
+            android:textColor="@color/bluegray10"
+            android:gravity="center"
+            />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textSize="25sp"
+            android:hint="Escribir clave"
+            android:inputType="text"
+            android:id="@+id/nfc_et"
+            android:textColor="@color/black"
+            android:textColorHint="@color/bluegray6"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/bluegray5"
+        android:layout_marginBottom="10dp"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="CONTRASEÑA"
+            android:textSize="20sp"
+            android:background="@color/bluegray7"
+            android:layout_weight="2"
+            android:textColor="@color/bluegray10"
+            android:gravity="center"
+            />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textSize="25sp"
+            android:hint="Escribir contraseña"
+            android:inputType="textPassword"
+            android:id="@+id/pswd_et"
+            android:textColor="@color/black"
+            android:textColorHint="@color/bluegray6"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/bluegray5"
+        android:layout_marginBottom="10dp"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="CONFIRMAR CONTRASEÑA"
+            android:textSize="20sp"
+            android:background="@color/bluegray7"
+            android:layout_weight="2"
+            android:textColor="@color/bluegray10"
+            android:gravity="center"
+            />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textSize="25sp"
+            android:hint="Confirmar contraseña"
+            android:inputType="textPassword"
+            android:id="@+id/cpswd_et"
+            android:textColor="@color/black"
+            android:textColorHint="@color/bluegray6"
+            />
+
+    </LinearLayout>
+
+
+    <Switch
+        android:layout_weight="1"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/permiso_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/bluegray10"
+        android:text="PERMISO:"
+        android:scaleX="4"
+        android:scaleY="4"
+        android:checked="true"
+        android:textSize="10sp"
+        android:layout_gravity="center_horizontal"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/bluegray10"
+        android:layout_weight="5"
+        android:text="CREAR USUARIO"
+        android:id="@+id/crear_btn"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+
+
+</LinearLayout>
